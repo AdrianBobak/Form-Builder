@@ -4,43 +4,43 @@ import { generateForm } from "./generate.js";
 let db;
 
 // create IndexedDB element
-window.addEventListener("load", function(){
+window.addEventListener("load", () => {
 
     if(!window.indexedDB) return;
     const request = indexedDB.open("formBuilder", 1);
 
-    request.addEventListener("error", function(e) {
+    request.addEventListener("error", e => {
         throw e.target.error;
     });
 
-    request.addEventListener("success", function() {
+    request.addEventListener("success", () => {
         db = request.result;
         readData();
     });
 
-    request.addEventListener("upgradeneeded", function(e) {
+    request.addEventListener("upgradeneeded", e => {
         const db = e.target.result;
         db.createObjectStore("form", { keyPath: "index" });
     });
 });
 
 // function that reads data from IndexedDB
-function readData(){
+const readData = () => {
     if(!window.indexedDB) return;
     const objectStore = db.transaction("form").objectStore("form");
     const allItems = objectStore.getAll();
-    allItems.addEventListener("success", function(){
+    allItems.addEventListener("success", () => {
         recoverFromIndexedDB(allItems.result);
     });
-    allItems.addEventListener("error", function(e){
+    allItems.addEventListener("error", e => {
         throw e.target.error;
     });
 }
 
 // function that recover data from IndexedDB
-function recoverFromIndexedDB(items){
+const recoverFromIndexedDB = (items) => {
     const fragment = document.createDocumentFragment();
-    items.forEach(function(elem){
+    items.forEach(elem => {
         const form = generateForm(elem);
         if(parseInt(elem.nest) === 0){
             fragment.appendChild(form);
@@ -54,12 +54,12 @@ function recoverFromIndexedDB(items){
 
 
 // caching function
-export function cacheAll(){
+export const cacheAll = () => {
     let index = 0;
     // create array to add forms settings
     const cacheArr = [];
     const forms = document.querySelectorAll("form");
-    forms.forEach(function(form){
+    forms.forEach(form => {
         // create object with all form settings
         const obj = {
             index: index++,
@@ -76,18 +76,18 @@ export function cacheAll(){
 }
 
 // add data to IndexedDB
-function addData(cacheArr){
+const addData = cacheArr => {
     const transaction = db.transaction(["form"], "readwrite");
     const objectStore = transaction.objectStore("form");
     const request = objectStore.clear();
 
-    request.addEventListener("error", function(e) {
+    request.addEventListener("error", e => {
         throw e.target.error;
     });
 
-    cacheArr.forEach(function(elem){
+    cacheArr.forEach(elem => {
         const request = db.transaction(["form"], "readwrite").objectStore("form").add(elem);
-        request.addEventListener("error", function(e) {
+        request.addEventListener("error", e => {
             throw e.target.error;
         });
     });

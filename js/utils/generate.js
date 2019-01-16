@@ -1,7 +1,7 @@
 import { delInput } from "./delete.js";
 import { cacheAll } from "./cache.js";
 
-export function addInput(e){
+export const addInput = e => {
     e.preventDefault();
     let settings = {};
 
@@ -17,7 +17,7 @@ export function addInput(e){
     cacheAll();
 }
 
-export function generateForm(settings){
+export const generateForm = settings => {
     // add form container and form
     const container = document.createElement("div");
     const form = document.createElement("form");
