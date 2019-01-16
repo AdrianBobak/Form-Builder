@@ -3,6 +3,14 @@ import { cacheAll } from "./cache.js";
 
 export const addInput = e => {
     e.preventDefault();
+
+    const isFilled = e.target.parentNode.parentNode.querySelector(".question input");
+
+    if(!isFilled.value){
+        isFilled.classList.add("error");
+        return;
+    } else isFilled.classList.remove("error");
+
     let settings = {};
 
     // container of the clicked form
