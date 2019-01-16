@@ -45,10 +45,15 @@ form {
     background: #fff;
     border: 1px solid #000;
     border-radius: 6px;
+    transition: 0.3s;
     width: 400px;
     padding: 20px;
     margin-bottom: -1px;
     overflow: hidden;
+}
+
+form input {
+    border: 1px solid #aaaaaa;
 }
 
 [data-nest="0"] {
@@ -153,4 +158,9 @@ h1 {
     background: #a5d31a; 
     border-radius: 10px;
     transition: 0.3s;
+  }
+
+  .error {
+      border: 1px solid red;
+      transition: 0.3s;
   }
