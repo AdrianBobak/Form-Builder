@@ -3,7 +3,7 @@ const { resolve } = require("path");
 module.exports = {
     mode: "production",
     optimization: {
-        minimize: false
+        minimize: true
     },
     entry: {
         polyfill: "@babel/polyfill",
