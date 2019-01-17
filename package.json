@@ -4,7 +4,7 @@
   "description": "A tool to help you create your own form\r - based on VanillaJS\r - using IndexedDB API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/AdrianBobak/Form-Builder/issues"
   },
-  "homepage": "https://github.com/AdrianBobak/Form-Builder#readme"
+  "homepage": "https://github.com/AdrianBobak/Form-Builder#readme",
+  "devDependencies": {
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  }
 }
