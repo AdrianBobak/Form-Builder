@@ -10,13 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/AdrianBobak/Form-Builder.git"
   },
-  "author": "",
+  "author": "Adrian Bobak",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AdrianBobak/Form-Builder/issues"
   },
   "homepage": "https://github.com/AdrianBobak/Form-Builder#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
+    "browserslist": "^4.4.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   }
