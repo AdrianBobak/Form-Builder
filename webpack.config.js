@@ -5,7 +5,7 @@ module.exports = {
     optimization: {
         minimize: false
     },
-    entry: "./js/scripts.js",
+    entry: "./js/main.js",
     output: {
         path: resolve(__dirname + "/dist/"),
         filename: "bundle.js"
