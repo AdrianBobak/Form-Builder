@@ -23,5 +23,8 @@
     "browserslist": "^4.4.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5"
   }
 }

@@ -5,10 +5,13 @@ module.exports = {
     optimization: {
         minimize: false
     },
-    entry: "./js/main.js",
+    entry: {
+        polyfill: "@babel/polyfill",
+        bundle: "./js/main.js"
+    },
     output: {
         path: resolve(__dirname + "/dist/"),
-        filename: "bundle.js"
+        filename: "[name].js"
     },
     module: {
         rules: [
